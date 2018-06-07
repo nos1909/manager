@@ -6,7 +6,7 @@ if($_POST)
 {
     //neu dang nhap dung
     $checklive = json_decode(curl('https://graph.facebook.com/me?access_token='.$token),true);
-    if($checklive[id])
+    if($checklive['id'])
     {
     $token = $_SESSION['token'] = trim($_POST['token']);
     $type = trim($_POST['type']);
