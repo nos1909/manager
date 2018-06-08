@@ -29,23 +29,24 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
                   if ($check != $type) {
                    curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
                    echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
+
+            // Comment
+            if(isset($_GET['comment'])){
+                  $message = $_GET['comment'];
+
+                  if(isset($_GET['sticker'])){
+                        curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&attachment_id='.$sticker.'&method=post&access_token='.$token); // bot comment sticker 
+                  }else{
+                        curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&method=post&access_token='.$token); // Bot comment
+                  }
+
+            }
+            // End Comment
                   }
 
             }
             // End Reaction
 
-            // Comment
-            if(isset($_GET['comment'])){
-            	$message = $_GET['comment'];
-
-            	if(isset($_GET['sticker'])){
-            		curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&attachment_id='.$sticker.'&method=post&access_token='.$token); // bot comment sticker 
-            	}else{
-            		curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&method=post&access_token='.$token); // Bot comment
-            	}
-
-            }
-            // End Comment
 
             }
             // END ALL
@@ -61,8 +62,6 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
             			if ($check != $type) {
             				curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
             				echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
-            			}
-
 
             // Comment
             if(isset($_GET['comment'])){
@@ -76,6 +75,8 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
 
             }
             // End Comment
+
+            			}
 
             		}
             	}
