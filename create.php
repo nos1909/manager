@@ -6,7 +6,7 @@ if($_POST)
 {
     //neu dang nhap dung
     $checklive = json_decode(curl('https://graph.facebook.com/me?access_token='.$_POST['token']),true);
-    if($checklive['id'])
+    if($checklive[id])
     {
     $token = $_SESSION['token'] = trim($_POST['token']);
     $type = trim($_POST['type']);
@@ -16,9 +16,24 @@ if($_POST)
 ?>
 <div class="form-group">
   <label for="usr">Link Cron:</label>
-  <input type="text" class="form-control" id="token" name="token" value="<?php echo $dm.'cron.php?token='.$token.'&camxuc='.$camxuc.'&comment='.$comment.'&type='.$type.'&sticker='.$sticker; ?>">
+  <input type="text" class="form-control" name="link" id="link_cron" value="<?php echo $dm.'cron.php?token='.$token.'&camxuc='.$camxuc.'&type='.$type; if(isset($comment)){ echo '&comment='.$comment; } if(isset($sticker)){ echo '&sticker='.$sticker; } ?>">
 </div>
-<button type="submit" class="btn btn-danger" id="copy_linl">Copy Link</button>
+<button class="btn btn-danger" id="copy_link" onclick="Copy_Link()">Sao Chép</button>
+<button class="btn btn-success" id="copy_link" onclick="Run_Link()">Chạy Thử</button>
+<script>
+function Copy_Link() {
+  var copyText = document.getElementById("link_cron");
+  copyText.select();
+  document.execCommand("copy");
+  //alert("Copied the text: " + copyText.value);
+}
+</script>
+<script>
+function Run_Link() {
+	var Link = document.getElementById("link_cron");
+    window.open(Link.value);
+}
+</script>
 <?php
     }else{
         //neu dang nhap sai
