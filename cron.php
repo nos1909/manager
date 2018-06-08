@@ -20,13 +20,19 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
 
 			$userid = $post[from][id];
 			// ALL
-			if($type == '1'){
-			$reacted = json_decode(curl('https://graph.facebook.com/'.$post[id].'/reactions?summary=true&access_token='.$token), true);
-            $check = $reacted[summary][viewer_reaction];
-            if ($check != $type) {
-                curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
-                echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
+		if($type == '1'){
+
+            // Reaction
+            if(isset($_GET['camxuc'])){
+                  $reacted = json_decode(curl('https://graph.facebook.com/'.$post[id].'/reactions?summary=true&access_token='.$token), true);
+                  $check = $reacted[summary][viewer_reaction];
+                  if ($check != $type) {
+                   curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
+                   echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
+                  }
+
             }
+            // End Reaction
 
             // Comment
             if(isset($_GET['comment'])){
@@ -57,21 +63,22 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
             				echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
             			}
 
-            		}
-            	}
 
             // Comment
             if(isset($_GET['comment'])){
-            	$message = $_GET['comment'];
+                  $message = $_GET['comment'];
 
-            	if(isset($_GET['sticker'])){
-            		curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&attachment_id='.$sticker.'&method=post&access_token='.$token); // bot comment sticker 
-            	}else{
-            		curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&method=post&access_token='.$token); // Bot comment
-            	}
+                  if(isset($_GET['sticker'])){
+                        curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&attachment_id='.$sticker.'&method=post&access_token='.$token); // bot comment sticker 
+                  }else{
+                        curl('https://graph.facebook.com/'.$post[id].'/comments?message='.urlencode($message).'&method=post&access_token='.$token); // Bot comment
+                  }
 
             }
             // End Comment
+
+            		}
+            	}
 
 
             }
