@@ -25,8 +25,9 @@ function Copy_Link() {
   var copyText = document.getElementById("link_cron");
   copyText.select();
   document.execCommand("copy");
-  //alert("Copied the text: " + copyText.value);
+  swal("Sao Chép Thành Công!", "Hãy cron-job để bot hoạt động nhé <3", "success");
 }
+swal("Thành Công!", "Bạn đã tạo thành công bot tương tác vui lòng sao chép liên kết và cron-job để bot hoạt động!", "success")
 </script>
 <script>
 function Run_Link() {
