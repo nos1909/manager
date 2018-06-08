@@ -65,8 +65,8 @@ session_start();
 <div class="form-group">
   <label for="type">Loại:</label>
   <select class="form-control" name="type">
-  <option value="1">Bạn Bè</option>
-  <option value="2">Tất Cả</option>
+  <option value="1">Tất Cả</option>
+  <option value="2">Bạn Bè</option>
 </select>
 </div>
 <button type="submit" class="btn btn-danger" id="button_login">Lấy Link Cron</button>
