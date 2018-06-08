@@ -12,7 +12,7 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <link rel="stylesheet" href="../css/sweetalert.css">
+  <link rel="stylesheet" href="../sweetalert.css">
   <style type="text/css">
   	.panel-primary>.panel-heading {
   	color: #f00;
@@ -191,7 +191,7 @@ $(document).ready(function()
   </div>
 </div>
 
-<script src="../js/sweetalert.js"></script>
-<script src="../js/sweetalert.custom.js"></script>
+<script src="../sweetalert.js"></script>
+<script src="../sweetalert.custom.js"></script>
 </body>
 </html>
