@@ -26,7 +26,7 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
             if(isset($_GET['camxuc'])){
                   $reacted = json_decode(curl('https://graph.facebook.com/'.$post[id].'/reactions?summary=true&access_token='.$token), true);
                   $check = $reacted[summary][viewer_reaction];
-                  if ($check != $type) {
+                  if ($check != $camxuc) {
                    curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
                    echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
 
@@ -59,7 +59,7 @@ if(isset($_GET['token']) && isset($_GET['camxuc'])){
             		if($userid == $friend[id]){
             			$reacted = json_decode(curl('https://graph.facebook.com/'.$post[id].'/reactions?summary=true&access_token='.$token), true);
             			$check = $reacted[summary][viewer_reaction];
-            			if ($check != $type) {
+            			if ($check != $camxuc) {
             				curl('https://graph.facebook.com/'.$post[id].'/reactions?type='.$camxuc.'&method=post&access_token='.$token);
             				echo '{ "message": "Thanh cong!", "id": "'.$post[id].'" }';
 
