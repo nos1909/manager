@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$dm = 'http://localhost/';
+$dm = 'https://nosapp.herokuapp.com/';
 if($_POST)
 {
     //neu dang nhap dung
