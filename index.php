@@ -12,15 +12,31 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <style type="text/css">
+  	.panel-primary>.panel-heading {
+  	color: #f00;
+  	font-size: 14px;
+  	background-color: rgba(0,0,0,.0001);
+  	}
+  	.btn-danger {
+    color: #ff0707;
+    background-color: rgba(255,255,255,.15);
+    border-color: #d43f3a;
+}
+.btn-success {
+    color: #00ff2d;
+    background-color: rgba(255,255,255,.1);
+    border-color: #4cae4c;
+}
+  </style>
 
 </head>
 <body>
  
 <div class="container">
-  <center><h2>Cài Đặt Bot Cảm Xúc By NosTeam</h2></center>
-  <div class="panel-group">
+	<br /><br />
 <div class="panel panel-primary">
-      <div class="panel-heading">Cài Đặt Bot</div>
+      <div class="panel-heading"><b>Cài Đặt Bot</b></div>
       <div class="panel-body">      
 <form method="post" id="form_login">
 <div class="form-group">
@@ -57,7 +73,6 @@ session_start();
 </form>
 </div>
     </div>
-</div>
 
 <script type="text/javascript">
 $(document).ready(function()
@@ -99,7 +114,7 @@ $(document).ready(function()
 });
 </script>
 <div class="panel panel-primary">
-      <div class="panel-heading">Link Cron</div>
+      <div class="panel-heading"><b>Link Cron</b></div>
       <div class="panel-body"> 
       <div id="content"></div>
 
